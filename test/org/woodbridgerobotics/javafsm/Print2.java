@@ -10,7 +10,7 @@ public class Print2 extends State<Transits> {
 
 	@Override
 	public void act() {
-		emit(PRINT_8);
+		emit(PRINT_4);
 	}
 
 	@Override

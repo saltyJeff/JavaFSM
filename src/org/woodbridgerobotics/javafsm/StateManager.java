@@ -7,6 +7,7 @@ public class StateManager {
 		currentState.onLeave();
 		currentState = s;
 		if(s != null) {
+			s.registerManager(this);
 			currentState.onEnter();
 		}
 	}
@@ -21,7 +22,6 @@ public class StateManager {
 			hasStarted = true;
 			currentState.onEnter();
 		}
-		System.out.println(canAct());
 		currentState.act();
 	}
 	public <E> State<E> entry(State<E> e) {

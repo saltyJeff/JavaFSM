@@ -14,10 +14,9 @@ public abstract class State<EVTS> {
 	protected void end() {
 		man.acceptState(null);
 	}
-	public OnOrThen<EVTS> on(EVTS evt, State next) {
+	public State<EVTS> on(EVTS evt, State next) {
 		transitions.put(evt, next);
-		next.registerManager(man);
-		return new OnOrThen<EVTS>(this, next);
+		return this;
 	}
 	public abstract void onEnter();
 	public abstract void act();
